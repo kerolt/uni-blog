@@ -1,3 +1,11 @@
 .el-menu--horizontal {
   border: none;
 }
+
+.card-box .el-card__body {
+  padding: 0;
+}
+
+.el-card {
+  border-radius: 10px;
+}

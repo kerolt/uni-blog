@@ -2,15 +2,7 @@
   <Header />
   <main class="main-wrap">
     <div class="content">
-      <el-row :gutter="20">
-        <el-col :span="17">
-          <router-view></router-view>
-        </el-col>
-        <el-col :span="7"
-          ><div class="grid-content ep-bg-purple" />
-          <UserInfo />
-        </el-col>
-      </el-row>
+      <router-view></router-view>
     </div>
   </main>
   <Footer />
@@ -20,7 +12,6 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import UserInfo from './components/UserInfo.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -30,7 +21,7 @@ import UserInfo from './components/UserInfo.vue'
   align-items: center;
   margin: 10px 0;
   .content {
-    width: 75%;
+    width: 65%;
   }
 }
 </style>
