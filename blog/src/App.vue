@@ -6,7 +6,10 @@
         <el-col :span="17">
           <router-view></router-view>
         </el-col>
-        <el-col :span="7"><div class="grid-content ep-bg-purple" /></el-col>
+        <el-col :span="7"
+          ><div class="grid-content ep-bg-purple" />
+          <UserInfo />
+        </el-col>
       </el-row>
     </div>
   </main>
@@ -17,6 +20,7 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import UserInfo from './components/UserInfo.vue'
 </script>
 
 <style lang="scss" scoped>
