@@ -2,6 +2,8 @@
   <el-card shadow="hover">
     <div class="avatar">
       <el-avatar :size="100" :src="avatar" />
+      <svg-icon name="gitee"></svg-icon>
+      <svg-icon name="github"></svg-icon>
     </div>
   </el-card>
 </template>
