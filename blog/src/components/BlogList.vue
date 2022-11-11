@@ -4,7 +4,9 @@
       <el-row>
         <!-- 文章图片 -->
         <el-col :span="10">
-          <img :src="item.firstPicture" alt="" class="first-picture" />
+          <router-link :to="'/articles/' + item.id">
+            <img :src="item.firstPicture" alt="" class="first-picture" />
+          </router-link>
         </el-col>
         <!-- 文章标题和简述 -->
         <el-col :span="14">
@@ -23,26 +25,31 @@ import { ref } from 'vue'
 
 const blogList = ref([
   {
+    id: 1,
     firstPicture: 'https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg',
     title: '测试',
     description: '这是一篇测试文章'
   },
   {
+    id: 1,
     firstPicture: 'https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg',
     title: '测试',
     description: '这是一篇测试文章'
   },
   {
+    id: 1,
     firstPicture: 'https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg',
     title: '测试',
     description: '这是一篇测试文章'
   },
   {
+    id: 1,
     firstPicture: 'https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg',
     title: '测试',
     description: '这是一篇测试文章'
   },
   {
+    id: 1,
     firstPicture: 'https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg',
     title: '测试',
     description: '这是一篇测试文章'
@@ -60,8 +67,15 @@ const blogList = ref([
   .first-picture {
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    transform: scale(1);
+    transition: transform 1s ease 0s;
+    overflow: hidden;
+  }
+  &:hover .first-picture {
+    transform: scale(1.1);
   }
   .blog-container {
     padding: 20px 20px 20px 40px;

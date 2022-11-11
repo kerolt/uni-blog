@@ -20,6 +20,10 @@ const routes = [
   {
     path: '/about',
     component: () => import('@/views/about/About.vue')
+  },
+  {
+    path: '/articles/:id',
+    component: () => import('@/views/article/Article.vue')
   }
 ]
 
