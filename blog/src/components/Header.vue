@@ -48,6 +48,9 @@ watch(router.currentRoute, () => {
   background-color: #fff;
   padding: 0 30px;
   box-sizing: border-box;
+  // position: fixed;
+  // top: 0;
+  // z-index: 999;
 }
 .right-header {
   display: flex;

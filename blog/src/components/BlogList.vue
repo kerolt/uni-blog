@@ -11,7 +11,9 @@
         <!-- 文章标题和简述 -->
         <el-col :span="14">
           <div class="blog-container">
-            <h3>{{ item.title }}</h3>
+            <router-link :to="'/articles/' + item.id">
+              <h3>{{ item.title }}</h3>
+            </router-link>
             <div class="description">{{ item.description }}</div>
           </div>
         </el-col>

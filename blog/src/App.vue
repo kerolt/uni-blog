@@ -22,6 +22,7 @@ import Footer from '@/components/Footer.vue'
   margin: 10px 0;
   .content {
     width: 65%;
+    // margin-top: 50px;
   }
 }
 </style>

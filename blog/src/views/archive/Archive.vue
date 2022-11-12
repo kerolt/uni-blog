@@ -1,5 +1,5 @@
 <template>
-  <div>Archive</div>
+  <el-card shadow="hover">Archives</el-card>
 </template>
 
 <script setup></script>

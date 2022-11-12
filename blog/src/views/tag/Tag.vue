@@ -1,5 +1,5 @@
 <template>
-  <div>Tags</div>
+  <el-card shadow="hover">Tags</el-card>
 </template>
 
 <script setup></script>
