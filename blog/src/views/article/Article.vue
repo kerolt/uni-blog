@@ -1,24 +1,26 @@
 <template>
-  <el-row :gutter="20">
-    <el-col :span="18">
-      <el-card shadow="hover" class="article">
-        <v-md-preview :text="blog" ref="preview"></v-md-preview>
-      </el-card>
-    </el-col>
-    <el-col :span="6">
-      <el-card shadow="hover" class="directory">
-        <h3>目录</h3>
-        <div
-          v-for="anchor in directory"
-          :key="anchor"
-          :style="{ padding: `10px 0 10px ${anchor.indent * 20}px` }"
-          @click="handleAnchorClick(anchor)"
-        >
-          <a style="cursor: pointer">{{ anchor.title }}</a>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
+  <div class="m-content">
+    <el-row :gutter="20">
+      <el-col :span="18">
+        <el-card shadow="hover" class="article">
+          <v-md-preview :text="blog" ref="preview"></v-md-preview>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover" class="directory">
+          <h3>目录</h3>
+          <div
+            v-for="anchor in directory"
+            :key="anchor"
+            :style="{ padding: `10px 0 10px ${anchor.indent * 20}px` }"
+            @click="handleAnchorClick(anchor)"
+          >
+            <a style="cursor: pointer">{{ anchor.title }}</a>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script setup>

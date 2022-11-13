@@ -1,11 +1,11 @@
 <template>
-  <header class="header">
+  <header class="header" ref="menu">
     <el-menu
       :default-active="navActive"
       mode="horizontal"
       background-color="rgba(0, 0, 0, 0)"
       text-color="#000"
-      active-text-color="#5698c3"
+      active-text-color="#FB3B49"
       @select="handleSelect"
       router="true"
     >
@@ -25,9 +25,10 @@
 
 <script setup>
 import { Search } from '@element-plus/icons-vue'
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
+const menu = ref()
 const navActive = ref('/')
 const router = useRouter()
 
@@ -36,6 +37,23 @@ watch(router.currentRoute, () => {
   navActive.value = router.currentRoute.value.path
   console.log(navActive.value)
 })
+
+onMounted(() => {
+  // 监听滚动条位置
+  window.addEventListener('scroll', scrollTop, true)
+})
+
+// 实时滚动条高度
+const scrollTop = () => {
+  const scroll = document.documentElement.scrollTop || document.body.scrollTop
+  if (scroll > 0) {
+    menu.value.style.backgroundColor = '#fff'
+    menu.value.style.boxShadow = '0px 2px #eee'
+  } else {
+    menu.value.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+    menu.value.style.boxShadow = 'none'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -44,13 +62,14 @@ watch(router.currentRoute, () => {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  box-shadow: 0px 2px #eee;
-  background-color: #fff;
+  // box-shadow: 0px 2px #eee;
+  // background-color: rgba(0, 0, 0, 0);
   padding: 0 30px;
   box-sizing: border-box;
-  // position: fixed;
-  // top: 0;
-  // z-index: 999;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  transition-duration: 0.7s;
 }
 .right-header {
   display: flex;
@@ -62,7 +81,6 @@ watch(router.currentRoute, () => {
   }
 }
 .el-menu {
-  box-shadow: 0px 2px #eee;
   width: 60%;
 }
 .el-menu-item {
