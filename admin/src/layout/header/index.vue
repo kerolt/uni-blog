@@ -19,7 +19,7 @@ import Screenfull from './components/Screenfull.vue'
 
 <style lang="scss" scoped>
 .header-container {
-  padding: 0;
+  padding: 0 10px;
   width: 100%;
   height: 100%;
   box-shadow: 0 2px 3px #888888;

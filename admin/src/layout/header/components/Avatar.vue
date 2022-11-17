@@ -13,10 +13,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const circleUrl = ref('https://liuyxcc.github.io/img/avatar.png')
 
 const logout = () => {
+  localStorage.clear()
+  router.replace('/login')
   console.log('logout')
 }
 </script>

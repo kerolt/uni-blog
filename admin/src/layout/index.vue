@@ -6,7 +6,9 @@
     <el-container class="main-container" :class="{ hidderContainer: store.collapse }">
       <el-header><Header /></el-header>
       <el-main>
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <router-view class="m-content"></router-view>
+        </transition>
       </el-main>
     </el-container>
   </el-container>
@@ -43,5 +45,15 @@ const store = useStore()
 .el-header {
   height: 85px;
   padding: 0;
+}
+
+// 路由切换时的动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

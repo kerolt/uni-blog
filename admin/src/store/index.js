@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 
 export const useStore = defineStore('store', {
   state: () => ({
-    collapse: false
+    collapse: false,
+    token: localStorage.getItem('token') || ''
   }),
   actions: {
     changeCollapse() {

@@ -24,6 +24,5 @@ const toggleCollapse = () => {
 <style lang="scss" scoped>
 .hamburger-container {
   cursor: pointer;
-  margin-left: 10px;
 }
 </style>

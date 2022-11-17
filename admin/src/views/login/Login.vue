@@ -36,12 +36,44 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const formRef = ref()
 const loginForm = ref({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: 'admin'
 })
+const rules = ref({
+  username: [
+    {
+      required: true,
+      message: '请输入用户名！',
+      trigger: 'blur'
+    }
+  ],
+  password: [
+    {
+      required: true,
+      message: '请输入密码！',
+      trigger: 'blur'
+    }
+  ]
+})
+
+const submitForm = (formRef) => {
+  formRef.validate((valid) => {
+    if (valid) {
+      // 如果表单校验成功并且用户名和密码正确，则将token存储起来，并跳转至首页
+      if (loginForm.value.username === 'admin' && loginForm.value.password === 'admin') {
+        localStorage.setItem('token', 'i have token!')
+        router.replace('/')
+      }
+    } else {
+      console.log('error')
+    }
+  })
+}
 </script>
 
 <style lang="scss" scoped>

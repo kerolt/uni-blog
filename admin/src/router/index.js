@@ -52,4 +52,14 @@ const router = createRouter({
   routes
 })
 
+// 未登录时跳转至登录界面
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token')
+  if (token || to.path === '/login') {
+    next()
+  } else {
+    next('/login')
+  }
+})
+
 export default router
