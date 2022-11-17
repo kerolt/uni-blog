@@ -7,6 +7,7 @@
     unique-opened="true"
     :collapse="store.collapse"
     router="true"
+    class="side-nav-bar"
   >
     <!-- 首页栏 -->
     <el-menu-item index="/">
@@ -51,4 +52,16 @@ import { useStore } from '../../store'
 const store = useStore()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.side-nav-bar:not(.el-menu--collapse) {
+  width: 210px;
+}
+.side-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+</style>

@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="navbar">
       <Hamburger />
-      <div class="navbar-right">
+      <div class="right-navbar">
         <Screenfull />
         <Avatar class="right-item" />
       </div>
@@ -20,34 +20,21 @@ import Screenfull from './components/Screenfull.vue'
 <style lang="scss" scoped>
 .header-container {
   padding: 0 10px;
-  width: 100%;
   height: 100%;
   box-shadow: 0 2px 3px #888888;
+  height: 60px;
   .navbar {
-    height: 50px;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
-    position: relative;
-    .navbar-right {
-      flex: 1;
+    justify-content: space-between;
+    .right-navbar {
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-end;
-      overflow: hidden;
-      margin-right: 15px;
-      :deep(.right-item) {
-        display: inline-block;
-        margin-left: 18px;
-        font-size: 22px;
-        color: #5a5e66;
-        box-sizing: border-box;
-        cursor: pointer;
+      .right-item {
+        margin-left: 10px;
       }
     }
-  }
-  .tabs-view-container {
-    height: 35px;
   }
 }
 </style>
