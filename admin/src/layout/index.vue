@@ -6,17 +6,22 @@
     <el-container :class="'main-container ' + isHide">
       <el-header><Header /></el-header>
       <el-main>
-        <transition name="fade" mode="out-in">
+        <!-- <transition name="fade" mode="out-in">
           <router-view class="m-content"></router-view>
-        </transition>
+        </transition> -->
+        <router-view class="m-content" v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script setup>
-import Menu from './menu/Menu.vue'
-import Header from './header/index.vue'
+import Menu from './components/Menu.vue'
+import Header from './components/Header.vue'
 import { useStore } from '../store'
 import { computed } from 'vue'
 

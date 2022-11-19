@@ -4,13 +4,13 @@
     background-color="#304156"
     :default-active="$router.currentRoute.value.path"
     text-color="#fff"
-    unique-opened="true"
+    :unique-opened="true"
     :collapse="store.collapse"
-    router="true"
+    :router="true"
     class="side-nav-bar"
   >
     <!-- 首页栏 -->
-    <el-menu-item index="/">
+    <el-menu-item index="/home">
       <el-icon><HomeFilled /></el-icon>
       <span>首页</span>
     </el-menu-item>
