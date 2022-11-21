@@ -8,7 +8,7 @@
         </el-icon>
       </div>
       <!-- 面包屑 -->
-      <b>{{ $route.name }}</b>
+      <h3>{{ $route.name }}</h3>
       <div class="right-navbar">
         <!-- 全屏按钮 -->
         <el-icon size="25px" class="screenfull" @click="toggleScreen">
@@ -143,9 +143,10 @@ watch(
       background-color: #eee;
       padding: 5px;
       border-radius: 5px;
+      transition: all 0.4s ease;
     }
     .tabs-content-item-active {
-      background-color: #579572;
+      background-color: #626aef;
       color: #eee;
     }
   }

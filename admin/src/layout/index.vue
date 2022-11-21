@@ -49,7 +49,7 @@ const isHide = computed(() => {
 // 路由切换时的动画
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
