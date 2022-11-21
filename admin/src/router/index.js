@@ -46,6 +46,11 @@ const routes = [
         path: '/users',
         name: '用户列表',
         component: () => import('@/views/user/User.vue')
+      },
+      {
+        path: '/website',
+        name: '网站管理',
+        component: () => import('@/views/website/Website.vue')
       }
     ]
   },
