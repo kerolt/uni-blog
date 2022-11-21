@@ -6,9 +6,6 @@
     <el-container :class="'main-container ' + isHide">
       <el-header><Header /></el-header>
       <el-main>
-        <!-- <transition name="fade" mode="out-in">
-          <router-view class="m-content"></router-view>
-        </transition> -->
         <router-view class="m-content" v-slot="{ Component }">
           <transition name="fade" mode="out-in">
             <component :is="Component" />

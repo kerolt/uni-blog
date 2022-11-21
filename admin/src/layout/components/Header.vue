@@ -8,7 +8,7 @@
         </el-icon>
       </div>
       <!-- 面包屑 -->
-      <h3>{{ $route.name }}</h3>
+      <span class="page-name">{{ $route.name }}</span>
       <div class="right-navbar">
         <!-- 全屏按钮 -->
         <el-icon size="25px" class="screenfull" @click="toggleScreen">
@@ -38,7 +38,9 @@
           @click="goTo(item)"
         >
           {{ item.name }}
-          <el-icon v-if="item.name !== '首页'" @click.stop="removeTab(item)"><Close /></el-icon>
+          <el-icon v-if="item.name !== '首页'" @click.stop="removeTab(item)" :size="18">
+            <Close class="close-icon" />
+          </el-icon>
         </span>
       </div>
       <div class="tabs-close" @click="closeAllTab">全部关闭</div>
@@ -54,7 +56,7 @@ import { useStore } from '@/store'
 
 const router = useRouter()
 const route = useRoute()
-const circleUrl = ref('https://liuyxcc.github.io/img/avatar.png')
+const circleUrl = ref('https://typora-lyx.oss-cn-guangzhou.aliyuncs.com/typora/avatar.jpg')
 const store = useStore()
 
 const toggleCollapse = () => {
@@ -73,7 +75,7 @@ const goTo = (item) => {
 const removeTab = (item) => {
   store.removeTab(item)
   if (route.path === item.path) {
-    router.replace('/home')
+    router.replace(store.tabList[store.tabList.length - 1])
   }
 }
 
@@ -113,13 +115,20 @@ watch(
 .header-container {
   padding: 0 10px;
   height: 100%;
-  box-shadow: 0 2px 3px #888888;
-  height: 84px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.32);
+  height: 94px;
   .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 42px;
+    height: 32px;
+    padding: 10px;
+    .page-name {
+      padding: 5px;
+      border-bottom: 3px solid #626aef;
+      width: 85px;
+      text-align: center;
+    }
     .right-navbar {
       display: flex;
       justify-content: center;
@@ -133,8 +142,11 @@ watch(
 .tabs-container {
   display: flex;
   align-items: center;
-  height: 42px;
+  height: 32px;
   justify-content: space-between;
+  font-size: 14px;
+  padding: 5px;
+  border-top: 1px dotted #a8a8a8;
   .tabs-content {
     text-align: center;
     .tabs-content-item {
@@ -143,15 +155,30 @@ watch(
       background-color: #eee;
       padding: 5px;
       border-radius: 5px;
+      line-height: 27px;
       transition: all 0.4s ease;
+      .close-icon {
+        transition: all 0.2s ease-in-out;
+      }
+      .close-icon:hover {
+        background-color: #bdb8b8;
+        border-radius: 50%;
+      }
     }
     .tabs-content-item-active {
       background-color: #626aef;
       color: #eee;
+      border-radius: 5px;
     }
   }
   .tabs-close {
     cursor: pointer;
+    border: 1px solid #d8dce5;
+    padding: 2px;
   }
+}
+.el-icon svg {
+  position: relative;
+  top: 3px;
 }
 </style>

@@ -31,6 +31,7 @@
         <el-icon><Setting /></el-icon>
         <span>系统管理</span>
       </template>
+      <el-menu-item index="/website">网站管理</el-menu-item>
       <el-menu-item index="/page">页面图片</el-menu-item>
       <el-menu-item index="/about">关于我</el-menu-item>
     </el-sub-menu>
@@ -63,5 +64,14 @@ const store = useStore()
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
+}
+</style>
+
+<style>
+.el-menu-item {
+  transition: all 0.15s ease-in-out;
+}
+.el-menu-item.is-active {
+  font-weight: bold;
 }
 </style>
