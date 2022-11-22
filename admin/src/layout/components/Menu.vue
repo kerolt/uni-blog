@@ -41,7 +41,8 @@
         <el-icon><UserFilled /></el-icon>
         <span>用户管理</span>
       </template>
-      <el-menu-item index="/users">用户列表</el-menu-item>
+      <el-menu-item index="/user/list">用户列表</el-menu-item>
+      <el-menu-item index="/user/account">账号设置</el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>

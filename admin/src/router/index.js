@@ -43,9 +43,14 @@ const routes = [
         component: () => import('@/views/about/About.vue')
       },
       {
-        path: '/users',
+        path: '/user/list',
         name: '用户列表',
-        component: () => import('@/views/user/User.vue')
+        component: () => import('@/views/user/UserList.vue')
+      },
+      {
+        path: '/user/account',
+        name: '账号设置',
+        component: () => import('@/views/user/Account.vue')
       },
       {
         path: '/website',

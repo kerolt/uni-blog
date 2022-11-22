@@ -16,7 +16,7 @@
       <el-form-item>
         <v-md-editor
           v-model="blog.article"
-          height="calc(100vh - 270px)"
+          height="calc(100vh - 290px)"
           placeholder="在vuepress主题中, 您可以使用tip功能噢~"
         />
       </el-form-item>
