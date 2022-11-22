@@ -56,6 +56,11 @@ const routes = [
         path: '/website',
         name: '网站管理',
         component: () => import('@/views/website/Website.vue')
+      },
+      {
+        path: '/authority',
+        name: '权限管理',
+        component: () => import('@/views/authority/Authority.vue')
       }
     ]
   },

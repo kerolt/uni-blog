@@ -44,6 +44,14 @@
       <el-menu-item index="/user/list">用户列表</el-menu-item>
       <el-menu-item index="/user/account">账号设置</el-menu-item>
     </el-sub-menu>
+    <!-- 权限管理 -->
+    <el-sub-menu index="5">
+      <template #title>
+        <el-icon><Key /></el-icon>
+        <span>权限管理</span>
+      </template>
+      <el-menu-item index="/authority">权限设置</el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
 
