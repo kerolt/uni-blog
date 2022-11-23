@@ -69,7 +69,7 @@ const closeAllTab = () => {
 }
 
 const goTo = (item) => {
-  router.push(item)
+  router.push(item.path)
 }
 
 const removeTab = (item) => {
@@ -149,6 +149,9 @@ watch(
   border-top: 1px dotted #a8a8a8;
   .tabs-content {
     text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
     .tabs-content-item {
       cursor: pointer;
       margin-right: 5px;

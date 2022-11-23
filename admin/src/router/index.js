@@ -18,6 +18,11 @@ const routes = [
         component: () => import('@/views/article/Article.vue')
       },
       {
+        path: '/article/:id',
+        name: '修改文章',
+        component: () => import('@/views/article/Article.vue')
+      },
+      {
         path: '/article-list',
         name: '文章列表',
         component: () => import('@/views/article/ArticleList.vue')
