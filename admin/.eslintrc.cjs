@@ -18,7 +18,7 @@ module.exports = {
   ],
   rules: {
     'vue/multi-word-component-names': 0,
-    'space-before-function-paren': ['error', 'never'], // 函数名与括号之间无空格
+    'space-before-function-paren': 0,
     quotes: ['error', 'single'] // 单引号
   }
 }
