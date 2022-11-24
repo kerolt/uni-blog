@@ -152,6 +152,13 @@ watch(
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #a8a8a8;
+      border-radius: 20px;
+    }
     .tabs-content-item {
       cursor: pointer;
       margin-right: 5px;
