@@ -1,7 +1,7 @@
-import api from './index'
+import request from '@/utils/request.js'
 
 export const getQiniuToken = () => {
-  return api({
+  return request({
     url: '/token/qiniu'
   })
 }
