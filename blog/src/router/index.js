@@ -32,4 +32,8 @@ const router = createRouter({
   routes
 })
 
+router.afterEach(() => {
+  window.scrollTo(0, 0) // 切换路由之后滚动条始终在最顶部
+})
+
 export default router
