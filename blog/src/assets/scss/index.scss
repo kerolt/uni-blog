@@ -1,17 +1,44 @@
 @import './element.scss';
 @import './mine.scss';
 
+@font-face {
+  font-family: 'SourceHanSansCN';
+  src: url('../fonts/SourceHanSansCN-Normal.otf')
+}
+
+@font-face {
+  font-family: '优设标题黑';
+  src: url('../fonts/YouSheBiaoTiHei.ttf')
+}
+
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
+  letter-spacing: 1px;
 }
 
 body {
-  font-family: 'Times New Roman', '仿宋', Times, serif;
+  font-family: 'Times New Roman', 'SourceHanSansCN', Times, serif;
   font-size: 17px !important;
+}
+
+#app {
+  background: linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1));
 }
 
 a {
   text-decoration: none;
   color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: rgb(239, 239, 239);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0003;
+  border-radius: 10px;
 }

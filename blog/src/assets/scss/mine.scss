@@ -1,8 +1,22 @@
-.m-content {
-  margin: 20px auto;
-  width: 65%;
+@media screen and (max-width:768px) {
+  .m-content {
+    margin: 30px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (min-width:960px) {
+  .m-content {
+    margin: 30px auto;
+    width: 80%;
+  }
 }
 
 .m-banner {
   height: 400px;
+}
+
+.m-icon {
+  margin-right: 0.3em;
+  vertical-align: -0.13em;
 }
