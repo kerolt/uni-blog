@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <el-row :gutter="12">
-      <el-col v-for="page of pageList" :key="page.id" :md="8">
+      <el-col v-for="page of pageList" :key="page._id" :md="8">
         <div class="page-item">
           <!-- 对图片的操作 -->
           <div class="page-opreation">
@@ -9,13 +9,13 @@
               <el-icon color="#eee"><More /></el-icon>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item @click="showDialog(page.id)"> 编辑 </el-dropdown-item>
+                  <el-dropdown-item @click="showDialog(page._id)"> 编辑 </el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
           </div>
           <el-image
-            :src="page.pageCover"
+            :src="page.bannerUrl"
             class="page-cover"
             placeholder="别急，图片马上出来~"
           ></el-image>
@@ -26,7 +26,7 @@
     <el-dialog v-model="dialogVisible" width="40%" style="z-index: 9999">
       <el-form :model="pageForm" label-width="150px" label-position="left">
         <el-form-item label="上传页面图片">
-          <Upload :url="pageForm.url" :width="360" :height="180" />
+          <Upload :url="pageForm.bannerUrl" :width="340" :height="180" @upload="upload" />
         </el-form-item>
       </el-form>
       <template #footer>
@@ -42,29 +42,43 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Upload from '@/components/Upload.vue'
-import axios from 'axios'
+import { getPageList, updatePageBannerUrl } from '@/api/page'
+import { ElMessage } from 'element-plus'
 
 const pageList = ref([])
 const pageForm = ref({
-  url: ''
+  _id: '',
+  bannerUrl: ''
 })
 const dialogVisible = ref(false)
 
 onMounted(() => {
-  axios.get('/api/pages').then((res) => {
-    console.log(res.data)
-    pageList.value = res.data
-  })
+  getPages()
 })
+
+const getPages = async () => {
+  const { data } = await getPageList()
+  pageList.value = data
+}
 
 const showDialog = (id) => {
   dialogVisible.value = true
-  pageForm.value.url = 'http://rlr92qkze.hn-bkt.clouddn.com/blog1669209793366.png'
-  console.log(id)
+  pageForm.value._id = id
+  pageForm.value.bannerUrl = pageList.value.filter((item) => item._id === id)[0].bannerUrl
 }
 
-const updatePage = () => {
+const updatePage = async () => {
+  const { code, message } = await updatePageBannerUrl(pageForm.value)
+  ElMessage({
+    type: code === 200 ? 'success' : 'warn',
+    message
+  })
   dialogVisible.value = false
+  getPages()
+}
+
+const upload = (url) => {
+  pageForm.value.bannerUrl = url
 }
 </script>
 

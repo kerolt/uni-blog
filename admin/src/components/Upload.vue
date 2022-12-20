@@ -27,7 +27,7 @@ import { getQiniuToken } from '../api/token'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
-const qiniuaddr = 'rlr92qkze.hn-bkt.clouddn.com'
+const qiniuaddr = 'cdn.liuyx.cc'
 const imageUrl = ref('')
 // 父组件传值时，须有图片的url；其次可选择图片的宽高（默认都为180）
 const props = defineProps({
